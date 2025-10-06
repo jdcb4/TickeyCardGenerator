@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articulate! Card Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Articulate! Card Creator</h1>
+            <p>Create custom cards for your Articulate! board game</p>
+        </header>
+
+        <main>
+            <!-- Card Entry Form -->
+            <section class="card-entry">
+                <h2>Create New Card</h2>
+                <form id="cardForm">
+                    <div class="form-group">
+                        <label for="person">Person (P - Red):</label>
+                        <input type="text" id="person" name="person" placeholder="Enter a person name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="object">Object (O - Blue):</label>
+                        <input type="text" id="object" name="object" placeholder="Enter an object" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="world">World (W - Green):</label>
+                        <input type="text" id="world" name="world" placeholder="Enter a world/place" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="action">Action (A - Yellow):</label>
+                        <input type="text" id="action" name="action" placeholder="Enter an action" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nature">Nature (N - Purple):</label>
+                        <input type="text" id="nature" name="nature" placeholder="Enter something from nature" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="random">Random (R - Orange):</label>
+                        <input type="text" id="random" name="random" placeholder="Enter anything random" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="spadeCategory">Spade Category (***):</label>
+                        <select id="spadeCategory" name="spadeCategory" required>
+                            <option value="">Choose which category gets the Spade</option>
+                            <option value="person">Person (P - Red)</option>
+                            <option value="object">Object (O - Blue)</option>
+                            <option value="world">World (W - Green)</option>
+                            <option value="action">Action (A - Yellow)</option>
+                            <option value="nature">Nature (N - Purple)</option>
+                            <option value="random">Random (R - Orange)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit">Add Card</button>
+                </form>
+            </section>
+
+            <!-- Cards Preview -->
+            <section class="cards-preview">
+                <h2>Your Cards</h2>
+                <div id="cardsList" class="cards-grid">
+                    <!-- Cards will be dynamically added here -->
+                </div>
+                <div class="actions">
+                    <button id="generatePDF" disabled>Generate PDF</button>
+                    <button id="clearCards">Clear All Cards</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Card Template (hidden) -->
+    <template id="cardTemplate">
+        <div class="card">
+            <div class="card-content">
+                <div class="category person">P</div>
+                <div class="word person-word"></div>
+                <div class="category object">O</div>
+                <div class="word object-word"></div>
+                <div class="category world">W</div>
+                <div class="word world-word"></div>
+                <div class="category action">A</div>
+                <div class="word action-word"></div>
+                <div class="category nature">N</div>
+                <div class="word nature-word"></div>
+                <div class="category random">R</div>
+                <div class="word random-word"></div>
+            </div>
+            <button class="remove-card">×</button>
+        </div>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
